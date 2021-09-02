@@ -1,0 +1,25 @@
+pkgname=pcombine
+pkgver=1.0_alpha.1
+pkgrel=1
+pkgdesc="A program to simultaneously run multiple programs and kill all of them if one dies"
+arch=(any)
+url="https://github.com/gozhev/pcombine"
+license=("GPL")
+
+source=(
+	"main.c"
+	"Makefile"
+)
+
+md5sums=(
+	'bf1fdc7e27cedb39d737d0ab1c640ad1'
+	'044571b14bf0d4970c787db31f8d3bc2'
+)
+
+build() {
+	make
+}
+
+package() {
+	install -D -m755 "${pkgname}" "${pkgdir}/usr/bin/${pkgname}"
+}
