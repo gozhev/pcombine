@@ -17,3 +17,5 @@ package() {
 	cd "${pkgname}-${pkgver}"
 	install -D -m755 "${pkgname}" "${pkgdir}/usr/bin/${pkgname}"
 }
+
+md5sums=('7a2eb859edc998aa7f1efec41c82d361')
