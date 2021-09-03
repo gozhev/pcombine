@@ -6,15 +6,15 @@ arch=(any)
 url="https://github.com/gozhev/pcombine"
 license=("GPL")
 
-source=("${pkgname}-${pkgver}.tar.gz"::"https://github.com/gozhev/pcombine/archive/refs/tags/v${pkgver//+/-}.tar.gz")
+source=("${pkgname}-${pkgver//+/-}.tar.gz"::"https://github.com/gozhev/pcombine/archive/refs/tags/v${pkgver//+/-}.tar.gz")
 
 build() {
-	cd "${pkgname}-${pkgver}"
+	cd "${pkgname}-${pkgver//+/-}"
 	make
 }
 
 package() {
-	cd "${pkgname}-${pkgver}"
+	cd "${pkgname}-${pkgver//+/-}"
 	install -D -m755 "${pkgname}" "${pkgdir}/usr/bin/${pkgname}"
 }
 
