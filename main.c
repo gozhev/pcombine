@@ -1,3 +1,5 @@
+/* © Mikhail Gozhev <m@gozhev.ru> / Autumn 2021 / Moscow, Russia */
+
 #include <errno.h>
 #include <signal.h>
 #include <stdbool.h>

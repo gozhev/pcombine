@@ -1,3 +1,5 @@
+# © Mikhail Gozhev <m@gozhev.ru> / Autumn 2021 / Moscow, Russia
+
 NAME := pcombine
 
 SRCS := main.c
