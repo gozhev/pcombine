@@ -133,7 +133,7 @@ int stop_processes(prog_list_t const* prog_list)
 {
 	int retval = 0;
 	for (int i = 0; i < prog_list->size; ++i) {
-		kill(prog_list->data[i].pid, SIGKILL);
+		kill(prog_list->data[i].pid, SIGINT);
 	}
 	for (;;) {
 		if ((retval = wait(NULL)) == -1) {
@@ -153,7 +153,11 @@ int set_up_signals(sigset_t* sigset)
 		goto exit;
 	}
 	if ((retval = sigaddset(sigset, SIGCHLD)) == -1) {
-		perror("failed to add a signal");
+		perror("failed to add a signal SIGCHLD");
+		goto exit;
+	}
+	if ((retval = sigaddset(sigset, SIGINT)) == -1) {
+		perror("failed to add a signal SIGINT");
 		goto exit;
 	}
 	if ((retval = sigprocmask(SIG_BLOCK, sigset, NULL)) == -1) {
