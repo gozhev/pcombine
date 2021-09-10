@@ -174,6 +174,8 @@ exit:
 
 int handle_signals(sigset_t const* sigset, prog_list_t const* prog_list)
 {
+	/* todo: manage processes depending on the options */
+	(void) prog_list;
 	int retval = 0;
 	siginfo_t siginfo = {0};
 	for (;;) {
@@ -182,12 +184,8 @@ int handle_signals(sigset_t const* sigset, prog_list_t const* prog_list)
 					strerror(retval));
 			goto exit;
 		}
-		/*
-		 * TODO: add here an ability to restart a program
-		 * depending on the options
-		 */
-		(void) prog_list;
-		retval = 0;
+		/* exit on any signal */
+		retval = -1;
 		goto exit;
 	}
 exit:
