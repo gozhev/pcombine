@@ -1,7 +1,6 @@
 /build/
 /pcombine
 /archlinux/**
-!/archlinux/PKGBUILD
-!/archlinux/PKGBUILD.export
+!/archlinux/PKGBUILD*
 .o
 .swp
